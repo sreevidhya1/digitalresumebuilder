@@ -35,46 +35,6 @@ public class TestClassProfile extends TestBaseProfile {
 		obj.PGPercentage("67%");
 		obj.PGInstitutionName("palayad");
 		obj.PGyearofpass("2022");
-		
-		
-	}
-		
-		
-	@Test
-	public void veryfyfullname()
-		{
-
-		obj=new CreateProfile(driver);
-		obj.setFullname("12345");
-		obj.CreateProfile1();
-		
-		}
-	//Enter numeric values
-	public void verifyfullnmae1()
-	{
-		
-		obj=new CreateProfile(driver);
-		obj.setFullname("12345");
-		obj.setDOB("02/01/2000");
-		obj.setgender();
-		obj.HschoolQulfcan();
-		obj.Hschoolpercentage("90%");
-		obj.Hschoolname("peralassery");
-		obj.Hschoolyearofpass("2015");
-		obj.HighersecondaryQulfcan();
-		obj.Highersecondary("70%");
-		obj.Highersecondaryname("kuthuparamba");
-		obj.Highersecondaryyearofpass("2017");
-		obj.GraduationCourse();
-		obj.GraduationStream();
-		obj.GraduationPercentage("76%");
-		obj.GInstitutionName("chinamaya");
-		obj.Graduationyearofpass("2020");
-		obj.PGCourse();
-		obj.PGStream();
-		obj.PGPercentage("67%");
-		obj.PGInstitutionName("palayad");
-		obj.PGyearofpass("2022");
 		obj.AddProjects();
 		obj.ProjectTittle("digital resume builder");
 		obj.Projectdes("A web app where users can add their details and download their resume");
@@ -108,8 +68,56 @@ public class TestClassProfile extends TestBaseProfile {
 		obj.Acccheckbox();
 		obj.CreateProfile1();
 	}
+		
+		
+		
+	@Test
+	public void verifylanguage()
+		{
+		
+		obj=new CreateProfile(driver);
+		obj.MyProfileLink();
+		obj.CreateProfileNow();
+		obj.Laguage("  ");
+		
+		obj.Acccheckbox();
+		obj.CreateProfile1();
+		
+		}
+	//Enter numeric values
+	public void verifyfullnmae1()
+	{
+		
+		obj=new CreateProfile(driver);
+		obj.MyProfileLink();
+		obj.CreateProfileNow();
+		obj.setFullname("12345");
+		obj.setDOB("02/01/2000");
+		obj.setgender();
+		obj.HschoolQulfcan();
+		obj.Hschoolpercentage("90%");
+		obj.Hschoolname("peralassery");
+		obj.Hschoolyearofpass("2015");
+		obj.HighersecondaryQulfcan();
+		obj.Highersecondary("70%");
+		obj.Highersecondaryname("kuthuparamba");
+		obj.Highersecondaryyearofpass("2017");
+		obj.GraduationCourse();
+		obj.GraduationStream();
+		obj.GraduationPercentage("76%");
+		obj.GInstitutionName("chinamaya");
+		obj.Graduationyearofpass("2020");
+		obj.PGCourse();
+		obj.PGStream();
+		obj.PGPercentage("67%");
+		obj.PGInstitutionName("palayad");
+		obj.PGyearofpass("2022");
+		obj.Acccheckbox();
+		obj.CreateProfile1();
+	}
 	//Verify that a user can create a web link for their resume
-			@Test
+	
+	    @Test
 			public void verifyweblink1()
 			{
 				temp=new Template(driver);
