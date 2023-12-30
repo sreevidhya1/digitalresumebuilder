@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import com.digitalresumebuilder.pages.EditPage;
 
-public class TestEdit extends TestBase{
+public class TestEdit extends TestEditBase{
 	EditPage obj=null;
 	@Test
 	public void editprofile() {
@@ -16,6 +16,7 @@ public class TestEdit extends TestBase{
             obj.dob(15, 12, 1992);
 		obj.email("abugduw@gmail.com");
 		obj.phone("1234567890");
+		obj.clickprofile();
 		obj.qualification1("Board of Public Examination");
 		obj.percentage1("78%");
 		obj.school1("nsbhwbiuwe");
@@ -41,6 +42,7 @@ public class TestEdit extends TestBase{
 		obj.image("C:\\Users\\abhi8\\Pictures\\Screenshots\\average.png");
 		obj.checkbox();
 		obj.update();
+		obj.popup();
 		}
        
 	@Test
@@ -50,6 +52,7 @@ public class TestEdit extends TestBase{
 		obj.skilltitle("   ");
 		obj.checkbox();
 		obj.update();
+		obj.home();
 	}
 	@Test
 	 public void testcase3() {
@@ -80,7 +83,9 @@ public class TestEdit extends TestBase{
 		obj.image("C:\\Users\\abhi8\\Pictures\\Screenshots\\average.png");
 		obj.checkbox();
 		obj.update();
+		
 	}
+	 
 	
 }
 

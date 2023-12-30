@@ -19,6 +19,11 @@ public class EditPage {
 		WebElement myprofile = driver.findElement(By.linkText("My Profile"));
 		myprofile.click();
 	}
+	public void home() {
+		WebElement clickhome = driver.findElement(By.xpath("//a[@routerlinkactive=\"active\"]"));
+		clickhome.click();
+	}
+	
 	public void clickedit()
 {
 		WebElement editprofile= driver.findElement(By.xpath("//a[@routerlink=\"/editform\"]"));
@@ -196,6 +201,12 @@ else {
      public void image(String upload) {
     	 WebElement imageload= driver.findElement(By.xpath("//input[@name='image']"));
     	imageload.sendKeys(upload);
+     }
+     public void  popup()
+     {
+         WebElement popupmsg=driver.findElement(By.xpath("//button[@type='submit']"));
+         popupmsg.click();
+         driver.switchTo().alert().accept();
      }
      }
 

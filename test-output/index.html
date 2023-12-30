@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\abhi8\AppData\Local\Temp\testng-eclipse-36620895\testng-customsuite.xml</span>
+                    <span>C:\Users\abhi8\AppData\Local\Temp\testng-eclipse-1293399855\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.digitalresumebuilder.test.TestEdit" class="method navigator-link" hash-for-method="editprofile">editprofile</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.digitalresumebuilder.test.TestMyProfile" class="method navigator-link" hash-for-method="profiletestcase1">profiletestcase1</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -121,25 +121,16 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">com.digitalresumebuilder.test.TestEdit</span>
+              <span class="class-name">com.digitalresumebuilder.test.TestMyProfile</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="editprofile">
-                  </a> <!-- editprofile -->
-                  <span class="method-name">editprofile</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Unable to find element with locator By.xpath: //select[@name=&quot;edu_title&quot;]
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: &apos;4.14.1&apos;, revision: &apos;03f8ede370&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.8&apos;
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:168)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
-	at com.digitalresumebuilder.pages.EditPage.qualification1(EditPage.java:82)
-	at com.digitalresumebuilder.test.TestEdit.editprofile(TestEdit.java:22)
+                  <a name="profiletestcase1">
+                  </a> <!-- profiletestcase1 -->
+                  <span class="method-name">profiletestcase1</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;com.digitalresumebuilder.pages.EditPage.clickprofile()&quot; because &quot;this.obj&quot; is null
+	at com.digitalresumebuilder.test.TestMyProfile.profiletestcase1(TestMyProfile.java:13)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -177,7 +168,7 @@ Driver info: driver.version: RemoteWebDriver
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\abhi8\AppData\Local\Temp\testng-eclipse-36620895\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\abhi8\AppData\Local\Temp\testng-eclipse-1293399855\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -186,7 +177,7 @@ Driver info: driver.version: RemoteWebDriver
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.digitalresumebuilder.test.TestEdit&quot;/&gt;
+      &lt;class name=&quot;com.digitalresumebuilder.test.TestMyProfile&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -228,14 +219,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'editprofile')
-data.setCell(0, 2, 'com.digitalresumebuilder.test.TestEdit')
-data.setCell(0, 3, 6119);
+data.setCell(0, 1, 'profiletestcase1')
+data.setCell(0, 2, 'com.digitalresumebuilder.test.TestMyProfile')
+data.setCell(0, 3, 16);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 6 seconds</span>
+              <span class="suite-total-time">Total running time: 16 ms</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -261,7 +252,7 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.digitalresumebuilder.test.TestEdit</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.digitalresumebuilder.test.TestMyProfile</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">set</span>
                 <span class="method-start">0 ms</span>
@@ -269,8 +260,8 @@ return data;
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">editprofile</span>
-                <span class="method-start">18344 ms</span>
+                <span class="method-name">profiletestcase1</span>
+                <span class="method-start">20944 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
