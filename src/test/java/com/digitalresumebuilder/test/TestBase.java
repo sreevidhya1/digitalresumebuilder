@@ -9,15 +9,15 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 
-import com.digitalresumebuilder.pages.LoginPage;
+import org.testng.annotations.BeforeMethod;
+
+
+import com.digitalresumebuilder.pages.LoginPage1;
 
 public class TestBase {
 	WebDriver driver;
-	LoginPage log = null;
+	LoginPage1 log = null;
 	public static Properties prop= null;
 	@BeforeMethod
 	public  void set() throws IOException, InterruptedException {
@@ -31,7 +31,7 @@ public class TestBase {
 	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 		driver.manage().window().maximize();
-		log = new LoginPage(driver);
+		log = new LoginPage1(driver);
 		log.signupclick();
 		Thread.sleep(500);
 		log.setUsername("vidhya");

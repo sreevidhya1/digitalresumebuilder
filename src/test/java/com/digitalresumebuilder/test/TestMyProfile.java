@@ -10,7 +10,7 @@ import com.digitalresumebuilder.pages.MyProfile;
 public class TestMyProfile extends TestBase{
 	MyProfile profile=null;
 	EditPage obj = null;
-	@Test
+	@Test// checking the values updated during editing profile is reflected in the profile page
 	public void profiletestcase1() throws InterruptedException {
 		obj = new EditPage(driver);
 		profile = new MyProfile(driver);

@@ -1,22 +1,22 @@
 package com.digitalresumebuilder.test;
 
-import static org.testng.AssertJUnit.assertTrue;
+
 import java.time.Duration;
 
-import org.testng.annotations.BeforeMethod;
+
 
 import org.testng.annotations.Test;
 
-import com.digitalresumebuilder.constants.Constants;
+
 import com.digitalresumebuilder.pages.EditPage;
-import com.digitalresumebuilder.pages.LoginPage;
+import com.digitalresumebuilder.pages.LoginPage1;
 import com.digitalresumebuilder.pages.MyProfile;
 
 import dev.failsafe.internal.util.Assert;
 
 public class TestEdit extends TestBase{
 	EditPage obj=null;
-	LoginPage log = null;
+	LoginPage1 log = null;
 	MyProfile profile=null;
 	@Test// positive test case all the credentials are given
 	public void editprofile() throws InterruptedException {
@@ -30,7 +30,7 @@ public class TestEdit extends TestBase{
         obj.dob(15, 12, 1992);
         
        
-		obj.clickGender();
+        Assert.state(obj.isGenderClickable(), "it is not clickable");
         obj.email("abugduw@gmail.com");
 		obj.phone("1234567890");
 		
@@ -67,7 +67,7 @@ public class TestEdit extends TestBase{
 		
 		}
 
-   @Test
+ @Test// negative test case making the skill field blank
 	public void testcase2() throws InterruptedException {//check the blank space is accepting
     	obj = new EditPage(driver);
     	obj.clickprofile();
@@ -75,9 +75,10 @@ public class TestEdit extends TestBase{
 		obj.skills();
 		obj.skilltitle("   ");
 		obj.checkbox();
-		obj.update();
+		Assert.state(obj.isUpdateSuccessful(), "Update should fail when the skill field is blank.");
 		obj.home();
 		obj.logout();
+		
    }
 	
 	@Test// check the leap year is accepting

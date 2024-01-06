@@ -20,6 +20,7 @@ public class MyProfile {
   		((org.openqa.selenium.JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
   		Thread.sleep(500);
   	}
+	//to check the name is updated correctly
 		public boolean verifyupdatename(String nam) {
 			WebElement  full= driver.findElement(By.xpath("//div[@class='h2 title']"));
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
@@ -27,6 +28,7 @@ public class MyProfile {
 			String actualName = full.getText();
 	        return actualName.equals(nam);
 		}
+		//to check the date of birth is updated correctly
 		public boolean verifyUpdatedDOB(String expectedDOB) throws InterruptedException {
 		
 	        WebElement dobElement = driver.findElement(By.xpath("//div[contains(@class, 'card-body')]//div[contains(@class, 'row')]/div[contains(@class, 'col-sm-4') and contains(., 'Date of Birth:')]/following-sibling::div[contains(@class, 'col-sm-8')]\r\n"
@@ -37,17 +39,20 @@ public class MyProfile {
 	        String actualDOB = dobElement.getText();
 	        return actualDOB.equals(expectedDOB);
 	    }
+		//to check the email is updated correctly
 		public boolean verifyupdatedemail(String mail) {
 			WebElement email = driver.findElement(By.xpath("//div[@class='col-sm-4' and strong[text()='Email:']]/following-sibling::div"));
 			String actualemail = email.getText();
 			return actualemail.equals(email);
 		}
+		//to check the phone no is updated correctly
 		public boolean verifyupdatedphone(String phno) {
 			WebElement phoneno =driver.findElement(By.xpath("//div[contains(@class, 'card-body')]//div[contains(@class, 'row')]/div[contains(@class, 'col-sm-4') and contains(., 'Phone:')]/following-sibling::div[contains(@class, 'col-sm-8')]\r\n"
 					+ ""));
 			String actualph = phoneno.getText();
 			return actualph.equals(phno);
 		}
+		//to check language is updated correctly
 		public boolean verifyupdatelanguage(String langu) {
 			WebElement language= driver.findElement(By.xpath("//div[contains(@class, 'card-body')]//div[contains(@class, 'row')]/div[contains(@class, 'col-sm-4') and contains(., 'Language:')]/following-sibling::div[contains(@class, 'col-sm-8')]/table/tr/td\r\n"
 					+ ""));
