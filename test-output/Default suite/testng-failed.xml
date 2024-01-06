@@ -5,11 +5,11 @@
     <classes>
       <class name="com.digitalresumebuilder.test.TestClassProfile">
         <methods>
+          <include name="verifycreateprofilenow"/>
           <include name="Setup"/>
-          <include name="verifywebdownload"/>
-          <include name="verifyweblink1"/>
-          <include name="verifylanguage"/>
-          <include name="verifycreateprofile1"/>
+          <include name="verifytemplate"/>
+          <include name="verifycreate"/>
+          <include name="afterTest"/>
         </methods>
       </class> <!-- com.digitalresumebuilder.test.TestClassProfile -->
     </classes>

@@ -9,13 +9,17 @@ package com.digitalresumebuilder.test;
 
 	import org.openqa.selenium.WebDriver;
 	import org.openqa.selenium.chrome.ChromeDriver;
-	import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
+import com.digitalresumebuilder.pages.LoginPage;
 
 	public class TestBaseProfile {
 		WebDriver driver;
+		LoginPage log=null;
 		public static Properties prop=null;
 		@BeforeTest
-		public void Setup() throws IOException
+		public void Setup() throws IOException, InterruptedException
 		{
 			prop=new Properties();
 			FileInputStream ip=new FileInputStream("C:\\Users\\sravy\\eclipse-workspace\\digitalresumebuilderproject\\src\\test\\resources\\config.properties");
@@ -27,6 +31,19 @@ package com.digitalresumebuilder.test;
 			
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 			driver.manage().window().maximize();
+			log=new LoginPage(driver);
+			
+			log.signupclick();
+		    log.setUsername("sravya");
+			log.setPassword("Sravyalak123#");
+			log.RememberClick();
+			log.LoginClick();
+		}
+		@AfterTest
+		public void afterTest() throws InterruptedException
+		{
+		Thread.sleep(5000);
+		driver.quit();
 		}
 		}
 

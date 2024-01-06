@@ -1,378 +1,372 @@
 package com.digitalresumebuilder.pages;
 
+import java.time.Duration;
 
-	
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-	import org.openqa.selenium.By;
-	import org.openqa.selenium.WebDriver;
-	import org.openqa.selenium.WebElement;
-	import org.openqa.selenium.support.ui.Select;
+public class CreateProfile {
+	WebDriver driver;
 
-	public class CreateProfile
+	public CreateProfile(WebDriver driver) {
+
+		this.driver = driver;
+	}
+
+	public void clickprofile() throws InterruptedException {
+		WebElement myprofile = driver.findElement(By.xpath("//li/a[@routerlink=\"/profilehome\"]"));
+		scrollIntoView(myprofile);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(100));
+		wait.until(ExpectedConditions.elementToBeClickable(myprofile));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", myprofile);
+
+	}
+
+	// crate a profile now
+	public void CreateProfileNow() throws InterruptedException {
+
+		WebElement profilecreate = driver.findElement(By.xpath("//button[contains(text(), 'Create a Profile Now')]"));
+		// scrollIntoView(profilecreate);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(100));
+		wait.until(ExpectedConditions.elementToBeClickable(profilecreate));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", profilecreate);
+
+		//profilecreate.click();
+
+	}
+
+	public void name(String fullname) throws InterruptedException {
+		WebElement fullname1 = driver.findElement(By.xpath("//input[@id='name']"));
+		scrollIntoView(fullname1);
+		if (fullname1.getAttribute("value").isEmpty()) {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+			wait.until(ExpectedConditions.elementToBeClickable(fullname1));
+			fullname1.sendKeys(fullname);
+		} else {
+
+			System.out.println("Name field already filled: ");
+		}
+
+	}
+
+	public void dob(int dd, int mm, int yyyy) {
+		WebElement date = driver.findElement(By.xpath("//input[@id='date']"));
+		// Convert integers to strings before sending keys
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(100));
+		wait.until(ExpectedConditions.elementToBeClickable(date));
+		String day = Integer.toString(dd);
+		// it is used to convert the integer value to the string value
+		// because in the sendkey method the string value can be pass not the integer
+		String month = Integer.toString(mm);
+		String year = Integer.toString(yyyy);
+
+		if (date.getAttribute("value").isEmpty()) {
+			date.sendKeys(day + "/" + month + "/" + year);
+		} else {
+			System.out.println("field already filled");
+		}
+		// Concatenate the strings and send them as keys
+		date.sendKeys(day + "/" + month + "/" + year);
+	}
+
+	/*
+	 * public boolean isGenderClickable() { WebElement gen =
+	 * driver.findElement(By.xpath("//input[@id='gender' and @value='female']"));
+	 * try { WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	 * wait.until(ExpectedConditions.elementToBeClickable(gen)); return true; }
+	 * catch (Exception e) { return false; } }
+	 */
+
+	public void clickGender() {
+		WebElement gen = driver.findElement(By.xpath("//input[@id='gender' and @value='female']"));
+		boolean isSelected=gen.isSelected();
+		if(isSelected==false)
+		{
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", gen);
+		System.out.println("isSelected "+isSelected);
+		
+		}
+		
+		
+	}
+
+	public void email(String email)// to locate email
 	{
+		WebElement mailid = driver.findElement(By.xpath("//input[@name='email_id']"));
+		if (mailid.getAttribute("value").isEmpty()) {
+			mailid.sendKeys(email);
+		} else {
+			System.out.println("field already filled");
+		}
+	}
+
+	public void phone(String phone)// locate phone number
+	{
+		WebElement ph = driver.findElement(By.xpath("//input[@placeholder='Phone Number']"));
+		if (ph.getAttribute("value").isEmpty()) {
+			ph.sendKeys(phone);
+		} else {
+			System.out.println("field already filled");
+		}
+	}
+
+	public void qualification1(String quali1) {// locate qualification field for high school
+		WebElement highschool1 = driver.findElement(By.xpath("(//select[@formcontrolname='edu_title'])[1]"));
+		Select board1 = new Select(highschool1);// here Select is used for select the value from the drop down menu
+		board1.selectByVisibleText(quali1);// selectbyvisibletext is used for value is selected by the text visible to
+											// the user
+	}
+
+	public void percentage1(String percent1) {// locate to type the percentage mark of high school
+		WebElement per1 = driver.findElement(By.xpath("(//input[@placeholder='Percentage Scored'])[1]"));
+		if (per1.getAttribute("value").isEmpty()) {
+			per1.sendKeys(percent1);
+		} else {
+			System.out.println("field already filled");
+		}
+		// find the web element to the percentage mark send key method is used for send
+		// the values
+
+	}
+
+	public void school1(String sch1) throws InterruptedException {
+		WebElement schoolname1 = driver.findElement(By.xpath("(//input[@placeholder='School Name'])[1]"));
+		scrollIntoView(schoolname1);
+		if (schoolname1.getAttribute("value").isEmpty()) {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+			wait.until(ExpectedConditions.elementToBeClickable(schoolname1));
+			schoolname1.sendKeys(sch1);
+		} else {
+			System.out.println("The field is already filled");
+		}
+	}
+
+	public void yop1(String pass1) throws InterruptedException {
+		WebElement yearof1 = driver.findElement(By.xpath("(//input[@placeholder='Year of Pass'])[1]"));
+		scrollIntoView(yearof1);
+		if (yearof1.getAttribute("value").isEmpty()) {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+			wait.until(ExpectedConditions.elementToBeClickable(yearof1));
+			yearof1.sendKeys(pass1);
+		} else {
+			System.out.println("The field is already filled");
+		}
+	}
+
+	public void qualification2(String quali2) {
+		WebElement highschool2 = driver.findElement(By.xpath("(//select[@formcontrolname='edu_title'])[2]"));
+		Select board2 = new Select(highschool2);
+		board2.selectByVisibleText(quali2);
+	}
+
+	public void percentage2(String percent2) throws InterruptedException {
+		WebElement per2 = driver.findElement(By.xpath("(//input[@placeholder='Percentage Scored'])[2]"));
+		scrollIntoView(per2);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.elementToBeClickable(per2));
+
+	}
+
+	public void school2(String sch2) throws InterruptedException {
+		WebElement schoolname2 = driver
+				.findElement(By.xpath(" //p[@formgroupname='higherschools']//input[@formcontrolname='edu_school']"));
+		scrollIntoView(schoolname2);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.elementToBeClickable(schoolname2));
+		schoolname2.sendKeys(sch2);
+
+	}
+
+	public void yop2(String pass2) throws InterruptedException {
+		WebElement yearof2 = driver
+				.findElement(By.xpath(" //p[@formgroupname='higherschools']//input[@formcontrolname='edu_year']"));
+		scrollIntoView(yearof2);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.elementToBeClickable(yearof2));
+		yearof2.sendKeys(pass2);
+
+	}
+
+	public void qualification3(String quali3) {
+		WebElement graduation = driver
+				.findElement(By.xpath("  //p[@formgroupname='graduations']//select[@formcontrolname='edu_title']"));
+		Select board3 = new Select(graduation);
+		board3.selectByVisibleText(quali3);
+	}
+
+	public void stream(String streamsele) {
+		WebElement graduationstream = driver
+				.findElement(By.xpath("//p[@formgroupname='graduations']//select[@formcontrolname='edu_stream']"));
+		Select str = new Select(graduationstream);
+		str.selectByVisibleText(streamsele);
+	}
+
+	public void percentage3(String percent3) {
+		WebElement per3 = driver
+				.findElement(By.xpath(" //p[@formgroupname='graduations']//input[@formcontrolname='edu_desc']"));
+		per3.sendKeys(percent3);
+	}
+
+	public void school3(String sch3) {
+		WebElement schoolname3 = driver
+				.findElement(By.xpath("  //p[@formgroupname='graduations']//input[@formcontrolname='edu_inst']"));
+		schoolname3.sendKeys(sch3);
+	}
+
+	public void yop3(String pass3) {
+		WebElement yearof3 = driver
+				.findElement(By.xpath(" //p[@formgroupname='graduations']//input[@formcontrolname='edu_year']"));
+		yearof3.sendKeys(pass3);
+	}
+	public void PGCourse()
+	{
+		Select select = new Select(driver.findElement(By.xpath("(//select[@formcontrolname='edu_title'])[4]")));
+		select.selectByVisibleText("MCA");
+
+	}
+	public void PGStream()
+	{
+		Select select = new Select(driver.findElement(By.xpath("(//select[@formcontrolname='edu_stream'])[2]")));
+		select.selectByVisibleText("IT/CS");
+
+	}
+	public void PGPercentage(String percentage) throws InterruptedException
+	{
+		WebElement pgper=driver.findElement(By.xpath("//input[@formcontrolname='edu_desc']"));
+		scrollIntoView(pgper);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.elementToBeClickable(pgper));
+		pgper.sendKeys(percentage);
 		
-		
-			WebDriver driver;
-			
-		    public CreateProfile(WebDriver driver)
-		    {
-		   	 this.driver=driver;
-		    }
-		    //my profile link
-		    public void MyProfileLink()
-			{
-				WebElement prolink=driver.findElement(By.linkText("MY PROFILE"));
-				prolink.click();
-			}
-		    //crate a profile now
-		    public void CreateProfileNow()
-			{
-				WebElement profilecreate=driver.findElement(By.xpath("//button[@class='btn-get-started animate__animated animate__fadeInUp scrollto'"));
-				profilecreate.click();
-				
-			}
-		    
-				public void setFullname(String fullname)
-				{
-					WebElement uname=driver.findElement(By.id("name"));
-					uname.sendKeys(fullname);
-				}
-			
-				public void setDOB(String dob)
-				{
-					WebElement udob=driver.findElement(By.id("date"));
-					udob.sendKeys(dob);
-				}
-				public void setgender()
-				{
-					WebElement gender_radio_button = driver.findElement(By.id ("gender"));
-						    gender_radio_button.click();
+	}
+	public void PGInstitutionName(String ginstitute)
+	{
+		WebElement pginstitutename=driver.findElement(By.xpath("(//input[@placeholder='Institution Name'])[2]"));
+		pginstitutename.sendKeys(ginstitute);
+	}
+	public void PGyearofpass(String yearofpass)
+	{
+		WebElement PGyear=driver.findElement(By.xpath("(//input[@placeholder='Year of Pass'])[4]"));
+		PGyear.sendKeys(yearofpass);
 
-				}
-				//High school
-				public void HschoolQulfcan()
-				{
-					Select select = new Select(driver.findElement(By.xpath("(//select[@formcontrolname='edu_title'])[1]")));
-					select.selectByVisibleText("CBSC");
+	}
 
-				}
-				public void Hschoolpercentage(String percentage)
-				{
-					WebElement uhper=driver.findElement(By.xpath("(//input[@placeholder='Percentage Scored'])[1]"));
-					uhper.sendKeys(String.valueOf(percentage));
-					
-				}
-				public void Hschoolname(String highschool)
-				{
-					WebElement uhname=driver.findElement(By.xpath("(//input[@placeholder='School Name'])[1]"));
-					uhname.sendKeys(highschool);
+	public void project() {
+		WebElement add = driver
+				.findElement(By.xpath("//table[@formarrayname='projects']//button[contains(@class, 'btn-primary')]"));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", add);
 
-				}
-				public void Hschoolyearofpass(String yearofpass)
-				{
-					WebElement uhyear=driver.findElement(By.xpath("(//input[@placeholder='Year of Pass'])[1]"));
-					uhyear.sendKeys(yearofpass);
+	}
 
-				}
-				//Higher secondary
-				
-				public void HighersecondaryQulfcan()
-				{
-					Select select = new Select(driver.findElement(By.xpath("(//select[@formcontrolname='edu_title'])[2]")));
-					select.selectByVisibleText("CBSC");
+	public void projectname(String pronam) throws InterruptedException {
+		WebElement title = driver.findElement(
+				By.xpath("//table[@formarrayname='projects']//input[contains(@formcontrolname, 'title')]"));
+		scrollIntoView(title);
+		if (title.getAttribute("value").isEmpty()) {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+			wait.until(ExpectedConditions.elementToBeClickable(title));
+			title.sendKeys(pronam);
+		} else {
+			System.out.println("The field is already filled");
+		}
 
-				}
-				public void Highersecondary(String percentage)
-				{
-					WebElement higherper=driver.findElement(By.xpath("(//input[@placeholder='Percentage Scored'])[2]"));
-					higherper.sendKeys(String.valueOf(percentage));
-					
-				}
-				public void Highersecondaryname(String higherschool)
-				{
-					WebElement highername=driver.findElement(By.xpath("(//input[@formcontrolname='edu_school'])[1]"));
-					highername.sendKeys(higherschool);
+	}
 
-				}
-				public void Highersecondaryyearofpass(String yearofpass)
-				{
-					WebElement higheryear=driver.findElement(By.xpath("(//input[@placeholder='Year of Pass'])[2]"));
-					higheryear.sendKeys(yearofpass);
+	public void projectdescrption(String pd) {
+		WebElement descrip = driver
+				.findElement(By.xpath("//table[@formarrayname='projects']//input[contains(@formcontrolname, 'desc')]"));
+		descrip.sendKeys(pd);
+	}
 
-				}
-				//Graduation
-				public void GraduationCourse()
-				{
-					Select select = new Select(driver.findElement(By.xpath("(//select[@formcontrolname='edu_title'])[3]")));
-					select.selectByVisibleText("BCA");
+	public void projectremove() {
+		WebElement remove = driver.findElement(By.xpath("//table[@formarrayname='projects']//button[text()='Remove']"));
+		remove.click();
+	}
 
-				}
-				public void GraduationStream()
-				{
-					Select select = new Select(driver.findElement(By.xpath("(//select[@formcontrolname='edu_stream'])[1]")));
-					select.selectByVisibleText("IT/CS");
+	public void skills() {
+		WebElement addskil = driver
+				.findElement(By.xpath("//table[@formarrayname='skills']//button[contains(@class, 'btn btn-primary')]"));
+		addskil.click();
 
-				}
-				public void GraduationPercentage(String percentage)
-				{
-					WebElement Gper=driver.findElement(By.xpath("(//input[@placeholder='Percentage Scored'])[3]"));
-					Gper.sendKeys(String.valueOf(percentage));
-					
-				}
-				public void GInstitutionName(String ginstitute)
-				{
-					WebElement ginstitutename=driver.findElement(By.xpath("(//input[@placeholder='Institution Name'])[1]"));
-					ginstitutename.sendKeys(ginstitute);
-				}
-				public void Graduationyearofpass(String yearofpass)
-				{
-					WebElement Gyear=driver.findElement(By.xpath("(//input[@placeholder='Year of Pass'])[3]"));
-					Gyear.sendKeys(yearofpass);
+	}
 
-				}
-				//post Graduation
-				public void PGCourse()
-				{
-					Select select = new Select(driver.findElement(By.xpath("(//select[@formcontrolname='edu_title'])[4]")));
-					select.selectByVisibleText("MCA");
+	public void skilltitle(String skill) {
+		WebElement titleskill = driver
+				.findElement(By.xpath("//table[@formarrayname='skills']//input[@formcontrolname='skills']"));
+		titleskill.sendKeys(skill);
 
-				}
-				public void PGStream()
-				{
-					Select select = new Select(driver.findElement(By.xpath("(//select[@formcontrolname='edu_stream'])[2]")));
-					select.selectByVisibleText("IT/CS");
+	}
 
-				}
-				public void PGPercentage(String percentage)
-				{
-					WebElement pgper=driver.findElement(By.xpath("(//input[@class='form-control'])[14]"));
-					pgper.sendKeys(percentage);
-					
-				}
-				public void PGInstitutionName(String ginstitute)
-				{
-					WebElement pginstitutename=driver.findElement(By.xpath("(//input[@placeholder='Institution Name'])[2]"));
-					pginstitutename.sendKeys(ginstitute);
-				}
-				public void PGyearofpass(String yearofpass)
-				{
-					WebElement PGyear=driver.findElement(By.xpath("(//input[@placeholder='Year of Pass'])[4]"));
-					PGyear.sendKeys(yearofpass);
+	public void skillremove() {
+		WebElement move = driver
+				.findElement(By.xpath("//table[@formarrayname='skills']//button[@class='btn btn-remove']"));
+		move.click();
+	}
 
-				}
-				//Add your projects
-			
-				public void AddProjects()
-				{
-				WebElement addproject=driver.findElement(By.xpath("//table[@formarrayname='projects']//button[contains(@class, 'btn-primary')]"));
-				addproject.click();
-				}
-				public void ProjectTittle(String PTittle)
-				{
-					WebElement ptittle=driver.findElement(By.xpath("//input[@formcontrolname='title']"));
-					ptittle.sendKeys(PTittle);
-				}
-				
-				public void Projectdes(String Pdes)
-				{
-					WebElement pdes=driver.findElement(By.xpath("//input[@formcontrolname='desc']"));
-					pdes.sendKeys(Pdes);
-				}
-				//Remove Project
-				public void ProjectRemove()
-				{
-					WebElement premove=driver.findElement(By.xpath("//button[@class='btn btn-remove']"));
-					premove.click();
-					
-				}
-				//Add additional Qualifications
-				public void AdditnalQualifctn()
-				{
-				WebElement addqu=driver.findElement(By.xpath("(//button[@class='btn btn-primary'])[2]"));
-				addqu.click();
-				}
-				//course type
-				public void Coursetype()
-				{
-					Select select = new Select(driver.findElement(By.xpath("//select[@formcontrolname='edu_type']")));
-					select.selectByVisibleText("Short-term Course");
+	public void language() {
+		WebElement lan = driver.findElement(By.xpath("//table[@formarrayname='languages']//button[@type='button']"));
+		lan.click();
+	}
 
-				}
-				//course name
-				public void CName(String coursename)
-				{
-					WebElement cname=driver.findElement(By.xpath("//input[@formcontrolname='course_name']"));
-					cname.sendKeys(coursename);
-				}
-				
-				//percentage scored
-				public void CPercentage(String percentage)
-				{
-					WebElement cper=driver.findElement(By.xpath("//input[@formcontrolname='percentage']"));
-					cper.sendKeys(percentage);
-				}
-				//remove course
-				public void CourseRemove()
-				{
-					WebElement cremove=driver.findElement(By.xpath("(//button[@class='btn btn-remove'])[2]"));
-					cremove.click();
-					
-				}
-				//Job experience
-				public void AddExp()
-				{
-				WebElement addexp=driver.findElement(By.xpath("(//button[@class='btn btn-primary'])[3]"));
-				addexp.click();
-				}
-				//job title
-				public void JobTitle(String jobtitle)
-				{
-					WebElement cname=driver.findElement(By.xpath("(//input[@formcontrolname='job_title'])[1]"));
-					cname.sendKeys(jobtitle);
-				}
-				//from
-				public void Expfrom(String expfrom)
-				{
-					WebElement from=driver.findElement(By.xpath("((//input[@formcontrolname='exp_from'])[1]"));
-					from.sendKeys(expfrom);
-				}
-				//TO
-				public void ExpTO(String expto)
-				{
-					WebElement from=driver.findElement(By.xpath("(//input[@formcontrolname='exp_to'])[1]"));
-					from.sendKeys(expto);
-				}
-				//remove experience
-				public void ExpRemove()
-				{
-					WebElement expremove=driver.findElement(By.xpath("(//button[@class='btn btn-remove'])[3]"));
-					expremove.click();
-					
-				}
-				//skills
-				public void AddSkillbutton()
-				{
-				WebElement addskill=driver.findElement(By.xpath("(//button[@class='btn btn-primary'])[4]]"));
-				addskill.click();
-				}
-				//add skill
-				public void Addskill(String addskill)
-				{
-					WebElement skill=driver.findElement(By.xpath("(//input[@formcontrolname='skills'])[1]"));
-					skill.sendKeys(addskill);
-				}
-				//remove skill
-				public void skillRemove()
-				{
-					WebElement skillremove=driver.findElement(By.xpath("(//button[@class='btn btn-remove'])[4]"));
-					skillremove.click();
-				}
-				//language add button
-				public void Addlangbutton()
-				{
-				WebElement addlang=driver.findElement(By.xpath("(//button[@class='btn btn-primary'])[5]"));
-				addlang.click();
-				}
-				//Languages Known
-				public void Laguage(String language)
-				{
-					WebElement lang=driver.findElement(By.xpath("(//input[@formcontrolname='languages'])[1]"));
-					lang.sendKeys(language);
-				}
-				//language remove
-				public void LanguageRemove()
-				{
-					WebElement langremove=driver.findElement(By.xpath("(//button[@class='btn btn-remove'])[1]"));
-					langremove.click();
-				}
-				//Programming Languages known:
-				public void Addplang()
-				{
-				WebElement addplang=driver.findElement(By.xpath("(//button[@class='btn btn-primary'])[6]"));
-				addplang.click();
-				}
-				//Language name
-				public void PLaguageName(String planguage)
-				{
-					WebElement Plang=driver.findElement(By.xpath("(//input[@formcontrolname='progs'])[1]"));
-					Plang.sendKeys(planguage);
-				}
-				//Your progress in percentage
-				public void PLaguageper(String planguageper)
-				{
-					WebElement Plangper=driver.findElement(By.xpath("(//input[@formcontrolname='prog_perc'])[1]"));
-					Plangper.sendKeys(String.valueOf(planguageper));
-				}
-				//Remove Programming Languages known:
-				public void PlangRemove()
-				{
-					WebElement plangremove=driver.findElement(By.xpath("(//button[@class='btn btn-remove'])[2]"));
-					plangremove.click();
-				}
-				//Your achievements add button:
-				public void Achievementsbutton()
-				{
-				WebElement ach=driver.findElement(By.xpath("(//button[@class='btn btn-primary'])[7]"));
-				ach.click();
-				}
-				// your achievements
-				public void Achievements(String achievements)
-				{
-					WebElement ach=driver.findElement(By.xpath("//input[@formcontrolname='achievements']"));
-					ach.sendKeys(achievements);
-				}
-				
-				//Your achievements remove button:
-				public void AchievementsRemove()
-				{
-					WebElement achremove=driver.findElement(By.xpath("(//button[@class='btn btn-remove'])[3]"));
-					achremove.click();
-				}
-				//Describe yourself in two or three lines:
-				public void Describe(String describe)
-				{
-					WebElement des=driver.findElement(By.id("yourself"));
-					des.sendKeys(describe);
-					
-				}
-				
-	//choose image
-				
-				public void chooseImage(String imageLocation)
-				{
-		            
-					WebElement image=driver.findElement(By.xpath("//input[@type='file']"));
-					image.click();
-				}
+	public void langadd(String lang) {
+		WebElement addlang = driver
+				.findElement(By.xpath("//table[@formarrayname='languages']//input[@formcontrolname='languages']"));
+		addlang.sendKeys(lang);
 
-				
-					// accept check box
-					public void Acccheckbox() 
-					{
-			            
-						WebElement acccheck=driver.findElement(By.xpath("//input[@type='checkbox']"));
-						acccheck.click();
-				}
-				//create profile
-				public void CreateProfile1()
-				{
-					WebElement createprofile=driver.findElement(By.xpath("//form[@class='ng-pristine ng-invalid ng-touched']"));
-					createprofile.click();
-					driver.switchTo().alert().accept();
-				}
+	}
 
-				 
-					
-				}
-				
+	public void langremove() {
+		WebElement removelang = driver
+				.findElement(By.xpath("//table[@formarrayname='languages']//button[@class='btn btn-remove']"));
+		removelang.click();
+	}
 
+	public void yourself(String your) {
+		WebElement desyou = driver.findElement(By.xpath("//textarea[@id='yourself']"));
+		desyou.sendKeys(your);
+	}
 
-				
+	public void image(String upload) {
+		WebElement imageload = driver.findElement(By.xpath("//input[@name='image']"));
+		imageload.sendKeys(upload);
+	}
 
+	public void checkbox() {
+		WebElement box = driver.findElement(By.xpath("//input[@type='checkbox']"));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", box);
+	}
 
+	public void createprofile1() {
+		WebElement submit = driver.findElement(By.xpath("//button[@class='btn btn-success']"));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", submit);
+		driver.switchTo().alert().accept();
+	}
 
+	public void popup()// to locate pop up message
+	{
+		WebElement popupmsg = driver.findElement(By.xpath("//button[@class='btn btn-success']"));
+		popupmsg.click();
+		driver.switchTo().alert().accept();
+	}
 
+	public void scrollIntoView(WebElement element) throws InterruptedException {
+		((org.openqa.selenium.JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		Thread.sleep(500);
+	}
 
-
-
-
+}
