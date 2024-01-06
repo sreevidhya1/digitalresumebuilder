@@ -31,14 +31,5 @@ public class TestMyProfile extends TestBase{
 	    }
 	}
 }
-		 /*assert profile.verifyupdatename(Constants.UPDATED_NAME) : "Name not updated correctly";
-	     assert profile.verifyUpdatedDOB(Constants.UPDATED_DOB) : "Date of Birth not updated correctly";
-	     assert profile.verifyupdatedemail(Constants.UPDATED_EMAIL): "EMAIL id is not updated correctly";
-	     assert profile.verifyupdatedphone(Constants.UPDATED_PHNO):"PHNO is not updated correctly";
-	     assert profile.verifyupdatelanguage(Constants.UPDATED_LANG):"Language is not updated correctly";
-	     
-	    	 }
-	
-
-}*/
+		
 

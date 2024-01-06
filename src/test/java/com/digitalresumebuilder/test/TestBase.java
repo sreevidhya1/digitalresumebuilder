@@ -41,12 +41,12 @@ public class TestBase {
 		log.LoginClick();
 
 	}
-	/*@AfterMethod
+	@AfterMethod
 	public void afterTest() throws InterruptedException
 	{
 	Thread.sleep(5000);
 	driver.quit();
-	}*/
+	}
 	
 	}
 
