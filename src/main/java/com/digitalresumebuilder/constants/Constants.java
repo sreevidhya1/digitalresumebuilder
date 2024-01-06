@@ -2,11 +2,11 @@ package com.digitalresumebuilder.constants;
 
 public class Constants {
 	
-	    public static final String UPDATED_NAME = "Updated Name";
-	    public static final String UPDATED_DOB = "15/12/1992";
-	    public static final String UPDATED_EMAIL = "ag.sreevidhya1@gmail.com";
-	    public static final String UPDATED_PHNO = "9495033362";
-	    public static final String UPDATED_LANG= "English";
+	    public static  String UPDATED_NAME = "sreevidhya";
+	    public static String UPDATED_DOB = "1992-12-15";
+	    public static  String UPDATED_EMAIL = "ag.sreevidhya1@gmail.com";
+	    public static String UPDATED_PHNO = "1234567890";
+	    public static  String UPDATED_LANG= "english";
 	    
 
 }
