@@ -3,12 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.digitalresumebuilder.test.TestEdit">
+      <class name="com.digitalresumebuilder.test.TestClassProfile">
         <methods>
-          <include name="set"/>
-          <include name="editprofile"/>
+          <include name="verifycreateprofilenow"/>
+          <include name="verifyweblink"/>
+          <include name="Setup"/>
+          <include name="verifytemplate"/>
+          <include name="verifycreate"/>
+          <include name="afterTest"/>
         </methods>
-      </class> <!-- com.digitalresumebuilder.test.TestEdit -->
+      </class> <!-- com.digitalresumebuilder.test.TestClassProfile -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
