@@ -6,6 +6,7 @@
       <class name="com.digitalresumebuilder.test.TestClassProfile">
         <methods>
           <include name="verifycreateprofilenow"/>
+          <include name="verifyweblink"/>
           <include name="Setup"/>
           <include name="verifytemplate"/>
           <include name="verifycreate"/>

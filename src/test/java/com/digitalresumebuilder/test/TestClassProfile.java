@@ -5,11 +5,11 @@ import java.time.Duration;
 import org.testng.annotations.Test;
 
 import com.digitalresumebuilder.pages.CreateProfile;
-import com.digitalresumebuilder.pages.LoginPage;
+import com.digitalresumebuilder.pages.LoginPage2;
 import com.digitalresumebuilder.pages.Template;
 
 public class TestClassProfile extends TestBaseProfile {
-	LoginPage log = null;
+	LoginPage2 log = null;
 	CreateProfile obj = null;
 	Template temp = null;
 
@@ -51,9 +51,9 @@ public class TestClassProfile extends TestBaseProfile {
 		obj.project();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		obj.projectname("digital");
-		obj.projectdescrption("vshsdwvd ashvuwys hasvuy ashvsqh");
+		obj.projectdescrption("digital resume builder");
 		obj.skills();
-		obj.skilltitle("hsshdcsvdc");
+		obj.skilltitle("tester");
 		obj.language();
 		obj.langadd("english");
 		obj.yourself("my name sravya complete Btech dregree");
@@ -68,8 +68,15 @@ public class TestClassProfile extends TestBaseProfile {
 		temp.TemplateLink();
 		temp.TemplateSelect();
 		temp.Download();
-		temp.Weblink();
+		//temp.Weblink();
 	}
+	@Test(priority=3)
+	public void verifyweblink() throws InterruptedException
+	{
+		temp = new Template(driver);
+	    temp.Weblink();
+	}
+	
 }
 
 

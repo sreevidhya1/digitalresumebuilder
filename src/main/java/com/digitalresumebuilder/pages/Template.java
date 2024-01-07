@@ -6,12 +6,15 @@ package com.digitalresumebuilder.pages;
 
 	import java.time.Duration;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 	import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import dev.failsafe.internal.util.Assert;
 
 	public class Template {
 		WebDriver driver;
@@ -60,6 +63,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 			wait.until(ExpectedConditions.elementToBeClickable(weblink));
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].click();", weblink);
+			Alert alert = driver.switchTo().alert();
+
+			String alertText = alert.getText();
+		        // Your assertion
+		        if (alertText =="This service/api is not supported in your Browser")
+		        {
+		           System.out.println("pass");
+		        }
+		        else
+		        	System.out.println("fail");
 
 			//weblink.click();
 			driver.switchTo().alert().accept();

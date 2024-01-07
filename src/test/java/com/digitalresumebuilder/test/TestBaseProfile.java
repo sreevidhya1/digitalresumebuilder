@@ -12,11 +12,11 @@ package com.digitalresumebuilder.test;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-import com.digitalresumebuilder.pages.LoginPage;
+import com.digitalresumebuilder.pages.LoginPage2;
 
 	public class TestBaseProfile {
 		WebDriver driver;
-		LoginPage log=null;
+		LoginPage2 log=null;
 		public static Properties prop=null;
 		@BeforeTest
 		public void Setup() throws IOException, InterruptedException
@@ -31,7 +31,7 @@ import com.digitalresumebuilder.pages.LoginPage;
 			
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 			driver.manage().window().maximize();
-			log=new LoginPage(driver);
+			log=new LoginPage2(driver);
 			
 			log.signupclick();
 		    log.setUsername("sravya");
