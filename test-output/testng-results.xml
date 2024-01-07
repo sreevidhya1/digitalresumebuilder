@@ -1,41 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-01-07T17:56:46 IST" name="Default suite" finished-at="2024-01-07T17:57:09 IST" duration-ms="22579">
+  <suite started-at="2024-01-06T16:26:52 IST" name="Default suite" finished-at="2024-01-06T16:27:27 IST" duration-ms="35777">
     <groups>
     </groups>
-    <test started-at="2024-01-07T17:56:46 IST" name="Default test" finished-at="2024-01-07T17:57:09 IST" duration-ms="22579">
-      <class name="com.digitalresumebuilder.test.TestClassProfile">
-        <test-method is-config="true" signature="Setup()[pri:0, instance:com.digitalresumebuilder.test.TestClassProfile@783a467b]" started-at="2024-01-07T17:56:46 IST" name="Setup" finished-at="2024-01-07T17:56:53 IST" duration-ms="7134" status="PASS">
+    <test started-at="2024-01-06T16:26:52 IST" name="Default test" finished-at="2024-01-06T16:27:27 IST" duration-ms="35777">
+      <class name="com.digitalresumebuilder.test.TestEdit">
+        <test-method is-config="true" signature="set()[pri:0, instance:com.digitalresumebuilder.test.TestEdit@4cc451f2]" started-at="2024-01-06T16:26:52 IST" name="set" finished-at="2024-01-06T16:27:09 IST" duration-ms="17219" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method signature="verifyMyprofile()[pri:-1, instance:com.digitalresumebuilder.test.TestClassProfile@783a467b]" started-at="2024-01-07T17:56:53 IST" name="verifyMyprofile" finished-at="2024-01-07T17:56:54 IST" duration-ms="754" status="PASS">
+        </test-method> <!-- set -->
+        <test-method signature="editprofile()[pri:0, instance:com.digitalresumebuilder.test.TestEdit@4cc451f2]" started-at="2024-01-06T16:27:09 IST" name="editprofile" finished-at="2024-01-06T16:27:22 IST" duration-ms="13104" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyMyprofile -->
-        <test-method signature="verifycreateprofilenow()[pri:0, instance:com.digitalresumebuilder.test.TestClassProfile@783a467b]" started-at="2024-01-07T17:56:54 IST" name="verifycreateprofilenow" finished-at="2024-01-07T17:56:55 IST" duration-ms="1268" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifycreateprofilenow -->
-        <test-method signature="verifycreate()[pri:1, instance:com.digitalresumebuilder.test.TestClassProfile@783a467b]" started-at="2024-01-07T17:56:55 IST" name="verifycreate" finished-at="2024-01-07T17:57:01 IST" duration-ms="6047" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifycreate -->
-        <test-method signature="verifytemplate()[pri:2, instance:com.digitalresumebuilder.test.TestClassProfile@783a467b]" started-at="2024-01-07T17:57:01 IST" name="verifytemplate" finished-at="2024-01-07T17:57:02 IST" duration-ms="1006" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifytemplate -->
-        <test-method signature="verifyweblink()[pri:3, instance:com.digitalresumebuilder.test.TestClassProfile@783a467b]" started-at="2024-01-07T17:57:02 IST" name="verifyweblink" finished-at="2024-01-07T17:57:03 IST" duration-ms="1002" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyweblink -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.digitalresumebuilder.test.TestClassProfile@783a467b]" started-at="2024-01-07T17:57:04 IST" name="afterTest" finished-at="2024-01-07T17:57:09 IST" duration-ms="5282" status="PASS">
+        </test-method> <!-- editprofile -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.digitalresumebuilder.test.TestEdit@4cc451f2]" started-at="2024-01-06T16:27:22 IST" name="afterTest" finished-at="2024-01-06T16:27:27 IST" duration-ms="5360" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- com.digitalresumebuilder.test.TestClassProfile -->
+      </class> <!-- com.digitalresumebuilder.test.TestEdit -->
+
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
